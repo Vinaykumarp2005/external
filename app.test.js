@@ -9,7 +9,11 @@ describe('Students API', () => {
   });
 
   it('POST /students', async () => {
-    const res = await request(app).post('/api/students').send({ name: 'abc' }).expect(201);
+    const res = await request(app)
+      .post('/students')
+      .send({ name: 'mno' })
+      .expect(201);
     expect(res.body.name).toBe('mno');
+    expect(res.body.id).toBe(3);
   });
 });
